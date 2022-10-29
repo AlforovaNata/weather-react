@@ -5,10 +5,27 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Weather App</h1>
+      <h1>Weather App</h1>
+      <div className="container">
         <Weather />
-      </header>
+      </div>
+      <footer>
+        <a
+          href="https://github.com/AlforovaNata/weather-react"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open-sourced code
+        </a>{" "}
+        by{" "}
+        <a
+          href="https://poetic-tanuki-2052b6.netlify.app"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Nataliia Alforova{" "}
+        </a>
+      </footer>
     </div>
   );
 }
