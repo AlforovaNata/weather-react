@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo.js";
-import WeatherForecast from "./WeatherForecast.js";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
 
@@ -12,14 +12,14 @@ export default function Weather(props) {
     //console.log(response.data);
     setWeatherData({
       ready: true,
-      coord: response.data.coordinates,
-      city: response.data.city,
-      date: new Date(response.data.time * 1000),
-      temperature: Math.round(response.data.temperature.current),
-      description: response.data.condition.description,
-      humidity: response.data.temperature.humidity,
+      coord: response.data.coord,
+      city: response.data.name,
+      date: new Date(response.data.dt * 1000),
+      temperature: Math.round(response.data.main.temp),
+      description: response.data.weather[0].description,
+      humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
-      icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
+      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
   }
 
@@ -32,8 +32,8 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
   function search() {
-    let apiKey = "dc87a0f910f83fb8t9bb19co1299b4ab";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    let apiKey = "58cec34cfb44af8a62781fae5ae994a8";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     
     axios.get(apiUrl).then(handleResponse);
   }
