@@ -15,32 +15,40 @@ export default function WeatherForecastDay(props) {
     let date = new Date(props.data.dt * 1000);
     let day = date.getDay();
 
-    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
 
     return days[day];
   }
- function date() {
-   let date = new Date(props.data.dt * 1000);
-   let months = [
-     "Jan",
-     "Feb",
-     "Mar",
-     "Apr",
-     "May",
-     "Jun",
-     "Jul",
-     "Aug",
-     "Sep",
-     "Oct",
-     "Nov",
-     "Dec",
-   ];
+  function date() {
+    let date = new Date(props.data.dt * 1000);
+    let months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
 
-   let month = months[date.getMonth()];
-   let today = date.getDate();
+    let month = months[date.getMonth()];
+    let today = date.getDate();
 
-   return `${month} ${today}`;
- }
+    return `${month} ${today}`;
+  }
 
   return (
     <div className="card">
