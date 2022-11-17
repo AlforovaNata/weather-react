@@ -19,10 +19,33 @@ export default function WeatherForecastDay(props) {
 
     return days[day];
   }
+ function date() {
+   let date = new Date(props.data.dt * 1000);
+   let months = [
+     "Jan",
+     "Feb",
+     "Mar",
+     "Apr",
+     "May",
+     "Jun",
+     "Jul",
+     "Aug",
+     "Sep",
+     "Oct",
+     "Nov",
+     "Dec",
+   ];
+
+   let month = months[date.getMonth()];
+   let today = date.getDate();
+
+   return `${month} ${today}`;
+ }
 
   return (
-    <div>
+    <div className="card">
       <div className="WeatherForecast-day">{day()}</div>
+      <h6 className="card-subtitle mb-2 text-muted">{date()}</h6>
       <div className="WeatherIcon">
         <img
           src={`http://openweathermap.org/img/wn/${props.data.weather[0].icon}.png`}
